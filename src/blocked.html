@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site Blocked</title>
+  <link rel="stylesheet" href="styles/common.css">
+  <link rel="stylesheet" href="styles/blocked.css">
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="45" fill="none" stroke="#667eea" stroke-width="6"/>
+          <line x1="30" y1="30" x2="70" y2="70" stroke="#667eea" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <h1 id="messageTitle">Caught you</h1>
+      <p class="message" id="messageText">You were about to check the news.</p>
+      <div class="site" id="siteName">Loading...</div>
+
+      <div class="alternatives">
+        <h2>What if you did this instead?</h2>
+        <ul id="alternativesList">
+          <li>Go for a quick walk around the block</li>
+          <li>Check your project you were excited about</li>
+          <li>Message a friend you haven't talked to in a while</li>
+          <li>Play one round of that game you like</li>
+        </ul>
+      </div>
+
+      <button id="goBack">Sounds good, take me back</button>
+
+      <div class="bypass-section hidden" id="bypassSection">
+        <h3>Really need to see it?</h3>
+
+        <div class="acknowledgment">
+          <input type="checkbox" id="acknowledgeCheckbox">
+          <label for="acknowledgeCheckbox">
+            I know this is probably rage bait / doom scrolling, but I'm doing it anyway
+          </label>
+        </div>
+
+        <div class="temp-buttons">
+          <button class="temp-btn" data-minutes="5" disabled>5 minutes</button>
+          <button class="temp-btn" data-minutes="15" disabled>15 minutes</button>
+          <button class="temp-btn" data-minutes="30" disabled>30 minutes</button>
+        </div>
+      </div>
+
+      <button class="show-bypass" id="showBypass">...but I still want to see it</button>
+    </div>
+  </div>
+    <script src="shared.js"></script>
+    <script src="blocked.js"></script>
+  </body>
+</html>

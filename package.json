@@ -1,0 +1,23 @@
+{
+  "name": "rageblock",
+  "version": "1.0.0",
+  "description": "A Firefox extension that blocks mainstream news sites while keeping investigative journalism accessible",
+  "type": "module",
+  "author": "Chris Dodds",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chrisdodds/rageblock"
+  },
+  "scripts": {
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage"
+  },
+  "devDependencies": {
+    "@vitest/ui": "^2.1.5",
+    "happy-dom": "^15.11.7",
+    "vitest": "^2.1.5"
+  }
+}
+

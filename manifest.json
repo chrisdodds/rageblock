@@ -1,0 +1,41 @@
+{
+  "manifest_version": 2,
+  "name": "RageBlock",
+  "version": "1.0.0",
+  "description": "Block mainstream news sites for mental health while keeping investigative journalism accessible",
+  "icons": {
+    "16": "icons/icon16.svg",
+    "48": "icons/icon48.svg",
+    "128": "icons/icon128.svg"
+  },
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "storage",
+    "<all_urls>"
+  ],
+  "background": {
+    "scripts": ["src/shared.js", "src/defaultBlocklist.js", "src/background.js"]
+  },
+  "browser_action": {
+    "default_popup": "src/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.svg",
+      "48": "icons/icon48.svg",
+      "128": "icons/icon128.svg"
+    },
+    "default_title": "RageBlock"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/shared.js", "src/content.js"],
+      "css": ["src/styles/overlay.css"],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    "src/blocked.html"
+  ]
+}
+

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RageBlock</title>
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/popup.css">
+  </head>
+  <body>
+    <h1>RageBlock</h1>
+
+    <div class="stats" id="statsSection">
+      <h3>📊 Your Stats</h3>
+      <div class="stat-grid">
+        <div class="stat-item">
+          <span class="stat-value" id="statBlocks">0</span>
+          <span class="stat-label">Blocks this week</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value" id="statBypasses">0</span>
+          <span class="stat-label">Bypasses this week</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>Allowed Sites (Never Block)</h3>
+      <div class="list-container" id="allowedList">Loading...</div>
+      <div class="add-site">
+        <input type="text" id="allowedInput" placeholder="example.com" />
+        <button id="addAllowed">Add to Allowed</button>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>Blocked Sites</h3>
+      <div class="list-container" id="blockedList">Loading...</div>
+      <div class="add-site">
+        <input type="text" id="siteInput" placeholder="example.com" />
+        <button id="addSite">Add to Blocked</button>
+      </div>
+    </div>
+
+    <script src="shared.js"></script>
+    <script src="defaultBlocklist.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

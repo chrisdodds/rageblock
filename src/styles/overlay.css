@@ -1,0 +1,98 @@
+/* Overlay styles for content script */
+#rageblock-expiry-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999999;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.rageblock-overlay-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(4px);
+}
+
+.rageblock-overlay-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border-radius: 16px;
+  padding: 40px;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.rageblock-overlay-content h1 {
+  margin: 0 0 16px 0;
+  font-size: 28px;
+  color: #667eea;
+}
+
+.rageblock-overlay-content p {
+  margin: 0 0 24px 0;
+  font-size: 16px;
+  color: #555;
+}
+
+.rageblock-overlay-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+}
+
+.rageblock-overlay-buttons button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.rageblock-btn-primary {
+  background: #667eea;
+  color: white;
+}
+
+.rageblock-btn-primary:hover {
+  background: #5568d3;
+  transform: translateY(-2px);
+}
+
+.rageblock-btn-secondary {
+  background: #e0e0e0;
+  color: #666;
+}
+
+.rageblock-btn-secondary:hover {
+  background: #d0d0d0;
+}
+
+.rageblock-btn-surrender {
+  background: #ffa726;
+  color: white;
+  font-size: 13px;
+}
+
+.rageblock-btn-surrender:hover {
+  background: #fb8c00;
+}
+
+.rageblock-overlay-buttons button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+

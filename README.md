@@ -21,6 +21,12 @@ There's an underlying philosophy here that you are better off focusing on things
 - **Reflection prompts**: Gentle reminders if you're bypassing too often
 - **Infinite scroll protection**: Overlay shows when your bypass expires instead of endless scrolling
 
+## Screenshots
+
+| Popup | Blocked Page |
+|-------|--------------|
+| ![Popup](docs/screenshots/popup.png) | ![Blocked](docs/screenshots/blocked.png) |
+
 ## Installation
 
 ### Development Install

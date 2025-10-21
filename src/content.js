@@ -69,24 +69,49 @@ function showExpiryOverlay() {
 
   const overlay = document.createElement('div');
   overlay.id = 'rageblock-expiry-overlay';
-  overlay.innerHTML = `
-    <div class="rageblock-overlay-backdrop"></div>
-    <div class="rageblock-overlay-content">
-      <h1>Time's up</h1>
-      <p>Your temporary bypass expired.</p>
-      <div class="rageblock-overlay-buttons">
-        <button id="rageblock-go-back" class="rageblock-btn-primary">Go Back</button>
-        <button id="rageblock-bypass-5min" class="rageblock-btn-secondary">5 more minutes</button>
-        <button id="rageblock-bypass-today" class="rageblock-btn-surrender">I give in, unblock for today</button>
-      </div>
-    </div>
-  `;
+
+  const backdrop = document.createElement('div');
+  backdrop.className = 'rageblock-overlay-backdrop';
+
+  const content = document.createElement('div');
+  content.className = 'rageblock-overlay-content';
+
+  const title = document.createElement('h1');
+  title.textContent = "Time's up";
+
+  const message = document.createElement('p');
+  message.textContent = 'Your temporary bypass expired.';
+
+  const buttons = document.createElement('div');
+  buttons.className = 'rageblock-overlay-buttons';
+
+  const goBackBtn = document.createElement('button');
+  goBackBtn.id = 'rageblock-go-back';
+  goBackBtn.className = 'rageblock-btn-primary';
+  goBackBtn.textContent = 'Go Back';
+
+  const bypass5minBtn = document.createElement('button');
+  bypass5minBtn.id = 'rageblock-bypass-5min';
+  bypass5minBtn.className = 'rageblock-btn-secondary';
+  bypass5minBtn.textContent = '5 more minutes';
+
+  const bypassTodayBtn = document.createElement('button');
+  bypassTodayBtn.id = 'rageblock-bypass-today';
+  bypassTodayBtn.className = 'rageblock-btn-surrender';
+  bypassTodayBtn.textContent = 'I give in, unblock for today';
+
+  buttons.appendChild(goBackBtn);
+  buttons.appendChild(bypass5minBtn);
+  buttons.appendChild(bypassTodayBtn);
+
+  content.appendChild(title);
+  content.appendChild(message);
+  content.appendChild(buttons);
+
+  overlay.appendChild(backdrop);
+  overlay.appendChild(content);
 
   document.body.appendChild(overlay);
-
-  const goBackBtn = overlay.querySelector('#rageblock-go-back');
-  const bypass5minBtn = overlay.querySelector('#rageblock-bypass-5min');
-  const bypassTodayBtn = overlay.querySelector('#rageblock-bypass-today');
 
   goBackBtn.addEventListener('click', () => {
     window.history.back();

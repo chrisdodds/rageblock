@@ -83,7 +83,12 @@ const ALTERNATIVES = [
     const shuffled = [...ALTERNATIVES].sort(() => Math.random() - 0.5);
     const selected = shuffled.slice(0, 4);
     const listEl = document.getElementById("alternativesList");
-    listEl.innerHTML = selected.map(alt => `<li>${alt}</li>`).join("");
+    listEl.textContent = ''; // Clear existing content
+    selected.forEach(alt => {
+      const li = document.createElement('li');
+      li.textContent = alt;
+      listEl.appendChild(li);
+    });
   } catch (e) {
     console.error("Error loading blocked page:", e);
     document.getElementById("siteName").textContent = "Unknown site";

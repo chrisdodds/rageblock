@@ -105,26 +105,32 @@ function renderBlockedList(sites) {
   const list = document.getElementById("blockedList");
   if (!list) return;
 
+  list.textContent = ''; // Clear existing content
+
   if (!sites || sites.length === 0) {
-    list.innerHTML = '<div style="padding: 8px; color: #666; font-size: 13px;">No blocked sites</div>';
+    const emptyDiv = document.createElement('div');
+    emptyDiv.style.cssText = 'padding: 8px; color: #666; font-size: 13px;';
+    emptyDiv.textContent = 'No blocked sites';
+    list.appendChild(emptyDiv);
     return;
   }
 
-  const html = sites
-    .map(
-      (site) => `
-    <div class="list-item">
-      <span>${site}</span>
-      <button class="btn-remove" data-site="${site}">Remove</button>
-    </div>
-  `
-    )
-    .join("");
+  sites.forEach((site) => {
+    const itemDiv = document.createElement('div');
+    itemDiv.className = 'list-item';
 
-  list.innerHTML = html;
+    const span = document.createElement('span');
+    span.textContent = site;
 
-  list.querySelectorAll("button").forEach((btn) => {
-    btn.addEventListener("click", () => removeBlocked(btn.dataset.site));
+    const removeBtn = document.createElement('button');
+    removeBtn.className = 'btn-remove';
+    removeBtn.dataset.site = site;
+    removeBtn.textContent = 'Remove';
+    removeBtn.addEventListener('click', () => removeBlocked(site));
+
+    itemDiv.appendChild(span);
+    itemDiv.appendChild(removeBtn);
+    list.appendChild(itemDiv);
   });
 }
 
@@ -136,25 +142,32 @@ function renderAllowedList(sites) {
     return;
   }
 
+  list.textContent = ''; // Clear existing content
+
   if (!sites || sites.length === 0) {
-    list.innerHTML = '<div style="padding: 8px; color: #666; font-size: 13px;">No allowed sites</div>';
+    const emptyDiv = document.createElement('div');
+    emptyDiv.style.cssText = 'padding: 8px; color: #666; font-size: 13px;';
+    emptyDiv.textContent = 'No allowed sites';
+    list.appendChild(emptyDiv);
     return;
   }
 
-  list.innerHTML = sites
-    .map(
-      (site) => `
-    <div class="list-item">
-      <span>${site}</span>
-      <button class="btn-remove" data-site="${site}">Remove</button>
-    </div>
-  `
-    )
-    .join("");
+  sites.forEach((site) => {
+    const itemDiv = document.createElement('div');
+    itemDiv.className = 'list-item';
 
-  // Add event listeners
-  list.querySelectorAll("button").forEach((btn) => {
-    btn.addEventListener("click", () => removeAllowed(btn.dataset.site));
+    const span = document.createElement('span');
+    span.textContent = site;
+
+    const removeBtn = document.createElement('button');
+    removeBtn.className = 'btn-remove';
+    removeBtn.dataset.site = site;
+    removeBtn.textContent = 'Remove';
+    removeBtn.addEventListener('click', () => removeAllowed(site));
+
+    itemDiv.appendChild(span);
+    itemDiv.appendChild(removeBtn);
+    list.appendChild(itemDiv);
   });
 }
 

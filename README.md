@@ -8,7 +8,7 @@ I wanted this for myself.
 
 Mainstream news creates anxiety through constant outrage and breaking news alerts. But you still want to stay informed through deep investigative reporting. RageBlock blocks sites like CNN and Fox News while allowing ProPublica and The Intercept.
 
-This isn't conspiracy theory driven, it's just an acknowledgement of different incentive structures. There's been a lot of optimization for clicks and profit by major news outlets that has a negative impact on truth and sensational framing.
+This isn't conspiracy theory driven, it's just an acknowledgement of different incentive structures. There's been a lot of optimization for clicks and profit by major news outlets that twists facts toward grievance.
 
 There's an underlying philosophy here that you are better off focusing on things you can actually change than getting worked up about stuff you can't impact.
 
@@ -45,12 +45,6 @@ There's an underlying philosophy here that you are better off focusing on things
 - Social media: Reddit, Twitter/X, Facebook, Instagram, TikTok
 - News aggregators
 - 60+ sites total (see `src/defaultBlocklist.js`)
-
-**Allowed by default**:
-
-- ProPublica, The Intercept, Mother Jones
-- Bellingcat, The Marshall Project
-- Investigative journalism sites
 
 **Managing sites**:
 

@@ -1,5 +1,6 @@
 // Extract site name from URL
 let currentSite = "";
+let currentTarget = null;
 
 // Random messages to rotate through - keep it fresh and not preachy
 const MESSAGES = [
@@ -55,6 +56,8 @@ const ALTERNATIVES = [
     const params = new URLSearchParams(window.location.search);
     const site = params.get("site");
     const siteNameEl = document.getElementById("siteName");
+
+    currentTarget = params.get("target");
 
     if (site) {
       currentSite = site;
@@ -136,6 +139,6 @@ async function tempUnblock(minutes) {
   await addBypass(currentSite, minutes);
 
   setTimeout(() => {
-    window.location.href = "https://" + currentSite;
+    window.location.href = currentTarget;
   }, 200);
 }

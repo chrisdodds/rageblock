@@ -86,7 +86,12 @@ browser.webRequest.onBeforeRequest.addListener(
 
     if (isBlocked) {
       await addBlock(hostname);
-      const blockedUrl = browser.runtime.getURL("src/blocked.html") + "?site=" + encodeURIComponent(hostname);
+      const blockedUrl =
+        browser.runtime.getURL("src/blocked.html") +
+        "?site=" +
+        encodeURIComponent(hostname) +
+        "&target=" +
+        encodeURIComponent(details.url);
       return {
         redirectUrl: blockedUrl,
       };

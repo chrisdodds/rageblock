@@ -130,9 +130,9 @@ async function addBlock(site) {
   });
 
   // Prune history to last 100
-  if (blockHistory.length > 100) {
-    blockHistory.shift();
-  }
+  // if (blockHistory.length > 100) {
+  //   blockHistory.shift();
+  // }
 
   // Save
   await browser.storage.local.set({

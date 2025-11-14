@@ -102,7 +102,14 @@ async function getRecentBypassCount() {
   const bypassHistory = data[STORAGE_KEYS.BYPASS_HISTORY] || [];
   const weekAgo = Date.now() - (7 * 24 * 60 * 60 * 1000);
 
-  return bypassHistory.filter(b => b.timestamp > weekAgo).length;
+  const recentBypasses = bypassHistory.filter((b) => b.timestamp > weekAgo);
+
+  // just prune old entries
+  await browser.storage.local.set({
+    [STORAGE_KEYS.BYPASS_HISTORY]: recentBypasses,
+  });
+
+  return recentBypasses.length;
 }
 
 async function getRecentBlockCount() {
@@ -113,7 +120,14 @@ async function getRecentBlockCount() {
   const blockHistory = data[STORAGE_KEYS.BLOCK_HISTORY] || [];
   const weekAgo = Date.now() - (7 * 24 * 60 * 60 * 1000);
 
-  return blockHistory.filter(b => b.timestamp > weekAgo).length;
+  const recentBlocks = blockHistory.filter((b) => b.timestamp > weekAgo);
+
+  // prune old entries
+  await browser.storage.local.set({
+    [STORAGE_KEYS.BLOCK_HISTORY]: recentBlocks,
+  });
+
+  return recentBlocks.length;
 }
 
 async function addBlock(site) {

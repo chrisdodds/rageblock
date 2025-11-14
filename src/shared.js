@@ -48,10 +48,6 @@ async function addBypass(site, minutes) {
     duration: minutes
   });
 
-  // Prune history to last 100
-  if (bypassHistory.length > 100) {
-    bypassHistory.shift();
-  }
 
   // Save
   await browser.storage.local.set({
@@ -142,11 +138,6 @@ async function addBlock(site) {
     site,
     timestamp: Date.now()
   });
-
-  // Prune history to last 100
-  // if (blockHistory.length > 100) {
-  //   blockHistory.shift();
-  // }
 
   // Save
   await browser.storage.local.set({

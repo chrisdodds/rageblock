@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "RageBlock",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Block mainstream news sites for mental health while keeping investigative journalism accessible",
   "icons": {
     "16": "icons/icon16.svg",
